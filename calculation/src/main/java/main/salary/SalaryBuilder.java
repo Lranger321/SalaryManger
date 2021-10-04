@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class SalaryBuilder {
 
-    private final BigDecimal amount;
+    private BigDecimal amount;
 
     public SalaryBuilder() {
         this(BigDecimal.ZERO);
@@ -19,6 +19,7 @@ public class SalaryBuilder {
     }
 
     public SalaryBuilder add(SalaryCalculation calculation) {
+        amount = calculation.add(amount);
         return this;
     }
 }

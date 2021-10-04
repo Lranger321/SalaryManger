@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface SalaryCalculation {
 
-    BigDecimal add(SalaryDeductionType type, BigDecimal amount);
+    BigDecimal add(BigDecimal amount);
 
 }

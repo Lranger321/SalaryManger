@@ -7,10 +7,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public abstract class SalaryDeduction implements SalaryCalculation {
 
-    private BigDecimal amount;
+    private final SalaryDeductionType type;
+    private final BigDecimal value;
 
     @Override
-    public BigDecimal add(SalaryDeductionType type, BigDecimal value) {
+    public BigDecimal add(BigDecimal amount) {
         return amount.add(type.equals(SalaryDeductionType.PERCENT) ?
                 BigDecimal.valueOf(value.doubleValue() * amount.doubleValue()) : value);
     }
