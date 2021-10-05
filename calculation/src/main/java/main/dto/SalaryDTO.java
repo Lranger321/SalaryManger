@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 @Builder
@@ -13,6 +14,6 @@ import java.util.Map;
 public class SalaryDTO {
 
     private BigDecimal amount;
-    private Map<String, String> salaryInfo;
+    private List<Map<String, String>> salaryInfo;
 
 }
