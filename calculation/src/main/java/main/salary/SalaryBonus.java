@@ -20,7 +20,7 @@ public class SalaryBonus implements SalaryCalculation {
     @Override
     public Map<String, String> getAnnotation() {
         if (type.equals(SalaryDeductionType.PERCENT)) {
-            return Map.of("Бонус", String.format("Бонус к запработной плате составляет %f роцентов", value.doubleValue()));
+            return Map.of("Бонус", String.format("Бонус к запработной плате составляет %f процентов", value.doubleValue()));
         }
         return Map.of("Бонус", String.format("Бонус к запработной плате составляет %f", value.doubleValue()));
     }
