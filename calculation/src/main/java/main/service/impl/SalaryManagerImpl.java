@@ -16,14 +16,8 @@ public class SalaryManagerImpl implements SalaryManager {
     public SalaryDTO getSalary(BigDecimal amount) {
         return new SalaryBuilder()
                 .add(new NDFLDeduction())
-//                .add(new RankBonus())
-//                .add(new ConditionBonus())
-//                .add(new StateSecretBonus())
-//                .add(new AwardBonus())
-//                .add(new ExperienceBonus())
                 .add(new RegionBonus())
                 .add(new EnglishBonus())
                 .build();
     }
-
 }
