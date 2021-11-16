@@ -11,6 +11,8 @@
     <modules>
         <module>calculation</module>
         <module>manager</module>
+        <module>Reporter</module>
+        <module>Dostavka</module>
     </modules>
 
     <properties>
