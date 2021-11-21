@@ -3,6 +3,7 @@ package main.service.calculation;
 import lombok.RequiredArgsConstructor;
 import main.dao.entity.Unit;
 import main.dao.entity.UnitType;
+import main.dto.UnitDTO;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,8 +13,8 @@ import java.math.BigDecimal;
 public class AverageUnitCalculationService implements UnitCalculationService{
 
     @Override
-    public BigDecimal calculate(Unit unit) {
-        return null;
+    public BigDecimal calculate(UnitDTO unitDTO) {
+        return basePrice;
     }
 
     @Override

@@ -30,5 +30,7 @@ public class Unit {
 
     private String to;
 
+    private String weight;
+
     private SpeedType speedType;
 }
