@@ -11,6 +11,7 @@ public enum SpeedType {
 
     private String type;
 
+    //@todo Убрать null
     public static SpeedType getType(String value) {
         for (SpeedType type : SpeedType.values()) {
             if (type.getType().equals(value)) {

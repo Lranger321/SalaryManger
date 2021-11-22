@@ -30,7 +30,8 @@ public class Unit {
 
     private String to;
 
-    private String weight;
+    private Double weight;
 
+    @Column(name = "speed_type")
     private SpeedType speedType;
 }

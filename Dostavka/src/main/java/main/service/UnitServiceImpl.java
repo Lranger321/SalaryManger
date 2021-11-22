@@ -25,27 +25,32 @@ public class UnitServiceImpl {
         return new UnitPriceDTO(calculationService.calculate(unitDTO));
     }
 
-
     private UnitCalculationService getCalculationService(UnitDTO unitDTO) {
         return calculationServiceMap.get(UnitType.getType(unitDTO.getUnitType()));
     }
 
     @Transactional
-    public long saveUnit(UnitDTO unitDTO){
+    public long saveUnit(UnitDTO unitDTO) {
         return unitRepository.save(fromDto(unitDTO)).getId();
     }
 
+    @Transactional
+    public void deleteById(long id) {
+        unitRepository.deleteById(id);
+    }
+
     //@todo обработка null
-    public Unit getById(long id){
+    public Unit getById(long id) {
         return unitRepository.findById(id).get();
     }
 
-    private Unit fromDto(UnitDTO unitDTO){
+    private Unit fromDto(UnitDTO unitDTO) {
         return Unit.builder()
                 .from(unitDTO.getFrom())
                 .to(unitDTO.getTo())
                 .name(unitDTO.getName())
                 .price(calculatePrice(unitDTO).getPrice())
+                .weight(unitDTO.getWeight())
                 .speedType(SpeedType.getType(unitDTO.getSpeedType()))
                 .type(UnitType.getType(unitDTO.getUnitType()))
                 .build();
