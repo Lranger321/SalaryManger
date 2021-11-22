@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 @Service
 public class RegionService {
 
-    public BigDecimal regionBonus(String to){
-        return BigDecimal.ONE;
+    // кринж логика можно поправить
+    public BigDecimal regionBonus(String to) {
+        return (!Character.isLowerCase(to.charAt(0))) ? BigDecimal.TEN : BigDecimal.ONE;
     }
 }
