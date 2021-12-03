@@ -7,6 +7,7 @@ import main.dao.entity.UnitType;
 import main.dao.repository.UnitRepository;
 import main.dto.UnitDTO;
 import main.dto.UnitPriceDTO;
+import main.exception.UnitNotFoundException;
 import main.service.calculation.UnitCalculationService;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,8 @@ public class UnitServiceImpl {
     }
 
     @Transactional
-    public long saveUnit(UnitDTO unitDTO) {
-        return unitRepository.save(fromDto(unitDTO)).getId();
+    public Unit saveUnit(UnitDTO unitDTO) {
+        return unitRepository.save(fromDto(unitDTO));
     }
 
     @Transactional
@@ -39,9 +40,17 @@ public class UnitServiceImpl {
         unitRepository.deleteById(id);
     }
 
-    //@todo обработка null
+    @Transactional
+    public void updateUnit(long id, UnitDTO dto) {
+        Unit unit = fromDto(dto);
+        unit.setId(id);
+        unitRepository.save(unit);
+    }
+
     public Unit getById(long id) {
-        return unitRepository.findById(id).get();
+        return unitRepository.findById(id).orElseThrow(
+                () -> new UnitNotFoundException(String.format("Unit with id %d not found", id))
+        );
     }
 
     private Unit fromDto(UnitDTO unitDTO) {

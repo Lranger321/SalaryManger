@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -21,19 +22,15 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @Tag("UnitTest")
-@ExtendWith(SpringExtension.class)
 class UnitServiceImplTest {
 
     private UnitServiceImpl service;
 
-    @MockBean
-    private AverageUnitCalculationService averageUnitCalculationService;
+    private final AverageUnitCalculationService averageUnitCalculationService = Mockito.mock(AverageUnitCalculationService.class);
 
-    @MockBean
-    private SoftUnitCalculationService softUnitCalculationService;
+    private final SoftUnitCalculationService softUnitCalculationService = Mockito.mock(SoftUnitCalculationService.class);
 
-    @MockBean
-    private UnitRepository repository;
+    private final UnitRepository repository = Mockito.mock(UnitRepository.class);
 
 
     @BeforeEach

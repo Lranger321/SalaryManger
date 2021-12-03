@@ -26,8 +26,10 @@ public class Unit {
 
     private BigDecimal price;
 
+    @Column(name = "unit_from", nullable = false)
     private String from;
 
+    @Column(name = "unit_to", nullable = false)
     private String to;
 
     private Double weight;
