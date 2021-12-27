@@ -5,17 +5,21 @@ import main.dao.entity.Unit;
 import main.dto.UnitDTO;
 import main.dto.UnitPriceDTO;
 import main.service.UnitServiceImpl;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
-@RestController("/api/units")
+@RestController
+@RequestMapping(value = "/api/units")
 public class UnitController {
 
     private final UnitServiceImpl unitService;
 
-    @PostMapping
-    public UnitPriceDTO getPrice(UnitDTO dto) {
-        return unitService.calculatePrice(dto);
+    @PostMapping("/getPrice")
+    public BigDecimal getPrice(@RequestBody UnitDTO dto) {
+        return unitService.calculatePrice(dto).getPrice();
     }
 
     @PostMapping("/")
