@@ -8,45 +8,48 @@
     <title>Document</title>
     <script src="http://127.0.0.1:8080/js/jquery.js"></script>
     <script src="http://127.0.0.1:8080/js/script.js"></script>
+    <link href="index.css" rel="stylesheet">
 </head>
 <body>
-<div className="App-container">
-    <header className="App-header">
-        <span className="Vse-dostavki-logo">всеДоставки</span>
+<div class="app-container">
+    <header class="app-header">
+        <span class="Vse-dostavki-logo">всеДоставки</span>
     </header>
-    <div className="container">
+    <div class="container">
         <form>
-            <div className="form-check">
+            <div class="form-check">
+                <h3>Шаг 1. Кто, кому, куда и сколько</h3>
                 <label>
                     Имя отправителя:<br/>
-                    <input type="text" id="name" name="senderName"/>
+                    <input class="form-input" id="name" name="senderName" type="text"/>
                 </label><br/>
                 <label>
                     Адрес отправителя:<br/>
-                    <input type="text" id="from" name="senderAddress"/>
+                    <input class="form-input" id="from" name="senderAddress" type="text"/>
                 </label><br/>
                 <label>
                     Имя получателя:<br/>
-                    <input type="text"  name="recipientName"/>
+                    <input class="form-input" name="recipientName" type="text"/>
                 </label><br/>
                 <label>
                     Адрес получателя:<br/>
-                    <input type="text" id="to" name="recipientAddress"/>
+                    <input class="form-input" id="to" name="recipientAddress" type="text"/>
                 </label><br/>
                 <label>
                     Вес груза (кг):<br/>
-                    <input type="number" id="weight" name="weight"/>
+                    <input class="form-input" id="weight" name="weight" type="number"/>
                 </label><br/>
+                <h3>Шаг 2. Способ доставки</h3>
                 <label>
                     Тип доставки:<br/>
-                    <select id="speedType">
+                    <select class="form-select" id="speedType">
                         <option value="emergency">Обычная</option>
                         <option value="fast">Ускоренная</option>
                     </select>
                 </label>
             </div>
-            <div className="form-group">
-                <input id="send-form" type="button" value="Рассчитать">
+            <div>
+                <input class="form-submit" id="send-form" type="button" value="Рассчитать">
             </div>
         </form>
     </div>
